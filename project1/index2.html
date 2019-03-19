@@ -40,7 +40,7 @@
             }
             return(
                 <div style={friendlyStyle}>
-                    <Avatar />
+                    <Avatar img={props.img}/>
                     <UserName name={props.name}/>
                     <GetConnected />
                 </div>
@@ -48,7 +48,7 @@
         }
 
         // AVATAR COMPONENT
-        const Avatar = () => {
+        const Avatar = (props) => {
             const avatarStyle = {
                 marginLeft: 27,
                 marginTop: 20,
@@ -57,7 +57,7 @@
                 borderRadius: '50%'
             }
             return(
-                <img src='https://static1.squarespace.com/static/55550428e4b0d770e3f981ab/t/5a1c6acef9619afa6a8316b7/1517422200240/alisha+headshot+2017b-square.jpg' alt='profile pic' style={avatarStyle}/>
+                <img src={props.img} alt='profile pic' style={avatarStyle}/>
             );
         }
 
@@ -66,6 +66,7 @@
         const UserName = (props) => {
             const nameStyle = {
                 fontSize: 24,
+                textAlign: 'center',
                 fontFamily: 'Arial, Helvetica, sans-serif',
                 margin: 25
             }
@@ -118,7 +119,8 @@
 
     // CHALLENGE - MASS PRODUCE INDIVIDUAL FRIENDLY CARDS USING PROPS
     // CHALLENGE 1 - USE PROPS TO PASS THE NAME OF THE PERSON FROM REACTDOM.RENDER TO PARENT FRIENDLY
-    // COMPONENT TO CHILD USERNAME COMPONENT        
+        // COMPONENT TO CHILD USERNAME COMPONENT   
+    // CHALLENGE 2 - USE PROPS TO PASS THE NAME OF THE PERSON FROM REACTDOM.RENDER  
         
 
 
@@ -128,7 +130,32 @@
     // RENDER REACT TO THE DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
     ReactDOM.render(
         //REACT WHAT - JSX
-        <Friendly name="Kate"/>,
+        <div>
+        <Friendly
+            name="Kate Spades"
+            img="https://static1.squarespace.com/static/55550428e4b0d770e3f981ab/t/5a1c6acef9619afa6a8316b7/1517422200240/alisha+headshot+2017b-square.jpg"
+        />
+        <Friendly
+            name="Sarah June"
+            img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFAeSts6lhsGx2LR0nteBh7WIYMcmlfUuk-w2BoblO9j_wkHfGwQ"
+        />
+        <Friendly
+            name="Liz Queens"
+            img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUY2aDpsTaHeoMlUJpmB71eNibe5mqaL9EXOEZdCWpR6XIBND7"
+        />
+        <Friendly
+            name="Claire Roy"
+            img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNpNwKDv6VLVir2jrmSf_QnzR3qd24avxuL3VhnOz87sXuYTll"
+        />
+        <Friendly
+            name="Dizzie Jones"
+            img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm43zDc1C_EFxsORsQ662zPkQ4JS1JOGpFOWN9xeJiaND2-c8i"
+        />
+        <Friendly
+            name="Billy Pips"
+            img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp1o-YA_lch7ZBbJTm_ACaqvKz_NKj-F5CDzp-fVm6vMaBybX7dw"
+        />
+        </div>,
         //REACT WHERE - DIV WITH ID OF 'APP
         document.getElementById('app')
     );
