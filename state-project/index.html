@@ -1,0 +1,97 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Boiler Plate Code</title>
+</head>
+<body>
+
+  <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+  <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/babel">
+
+    // Seting up the class, state & default values
+    class DinnerVote extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                votes: 0
+            };
+            // bind this for each button
+            this.add = this.add.bind(this);
+            this.subtract = this.subtract.bind(this);
+        }
+
+        // Button event handler functions
+        add() {
+            this.setState({
+                votes: this.state.votes + 1
+            })
+        }
+        subtract() {
+            this.setState({
+                votes: this.state.votes - 1
+            })
+        }
+
+
+        // CSS styling goes into the render function as JS objects
+        render() {
+            var dinnerVoteStyle = {
+                display: 'inline-block',
+                textAlign: 'center',
+                margin: 20,
+                height: 500,
+                width: 300,
+                padding: 0,
+                backgroundColor: '#FFF',
+                borderRadius: 15,
+                WebkitFilter: 'drop-shadow(0px 0px 5px #555',
+                filter: 'drop-shadow(0px 0px 5px #555'
+            }
+            var foodStyle = {
+                height: 200,
+                width: 200,
+                marginTop: 20,
+                borderRadius: 15
+            }
+
+            // Then we return the built HTML elements
+            return (
+                <div style={dinnerVoteStyle}>
+                    <img src={this.props.img} alt='food image' style={foodStyle}/>
+                    <h1>Dinner time</h1>
+                    <p>Vote here if you want this</p>
+                    <button onClick={this.add}>+1</button>
+                    <p>Vote here if you do not want this</p>
+                    <button onClick={this.subtract}>-1</button>
+                    <p>Total: {this.state.votes}</p>
+                </div>
+            );
+        }
+    }
+
+    // and render them to the DOM
+    ReactDOM.render(
+        <div>
+        <DinnerVote img="https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"/>
+        <DinnerVote img="https://static.pexels.com/photos/58722/pexels-photo-58722.jpeg"/>
+        <DinnerVote img="https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg"/>
+        </div>,
+        document.getElementById("app")
+    );
+  </script>
+
+</body>
+</html>
