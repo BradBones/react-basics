@@ -37,10 +37,15 @@
 
       // Deals with a change to the input feild (the user typing stuff)
       handleChange(event) {
-
+        this.setState({
+          value: event.target.value
+        });
       }
       // Deals with the submit button (when the user clicks on submit)
       handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.value);
+        // Stops the page from reloading by default
+        event.preventDefault();
 
       }
 
@@ -55,6 +60,7 @@
               <input type="text" value={this.state.value} onChange={this.handleChange} />
             </label>
               <input type="submit" value="Submit" />
+              <h6> testing value of handleChange = {this.state.value}</h6>
           </form>
         );
       }
